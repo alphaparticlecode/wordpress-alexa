@@ -44,5 +44,5 @@ add_action( 'rest_api_init', function () {
 } );
 
 function qotd_rest_callback(){
-	return json_encode( get_option( 'quote_of_the_day' ) );
+	return get_option( 'quote_of_the_day' );
 }
