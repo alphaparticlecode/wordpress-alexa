@@ -35,3 +35,13 @@ function qotd_callback() { ?>
     </label>
 
 <?php }
+
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'dailyprophet', '/qotd', array(
+    'methods' => 'GET',
+    'callback' => 'qotd_rest_callback',
+  ) );
+} );
+
+function qotd_rest_callback(){
+	return json_encode( get_option( 'quote_of_the_day' ) );
